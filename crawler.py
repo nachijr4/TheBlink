@@ -22,9 +22,9 @@ class Crawler:
             with requests.get(url) as response:
                 if "text/html" in response.headers['Content-Type']:
                     html = response.text
-                    parsed_links = LinkParser(url)
-                    parsed_links.feed(html)
-                    queued = parsed_links.get_parsed_links()
+                    parsed_links = LinkParser(url, html)
+                    # parsed_links.feed(html)
+                    queued = parsed_links.get_all_links()
                     if write is 1:
                         write_to_file(Crawler.queue_path, queued)
                     else:

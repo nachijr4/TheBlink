@@ -8,7 +8,7 @@ import sys
 
 folder_path = "links"
 queue = Queue()
-threads_count = 128
+threads_count = 32
 threads = list()
 lock = threading.Lock()
 crawled = set()
@@ -59,15 +59,17 @@ def create_workers():
         threads.append(t)
         t.start()
 
-def update_file(event):
+def update_file(event, time_to_sleep = 20):
     while True:
         # repeat = threading.Timer(30.0, update_file)
-        time.sleep(30)
         # repeat.start()
         lock.acquire()
-        queue_to_file(folder_path+"/queued.txt", queue)
-        write_to_file(folder_path+"/crawled.txt", crawled)
+        if  queue.qsize()>0:
+            queue_to_file(folder_path+"/queued.txt", queue)
+        if len(crawled):
+            write_to_file(folder_path+"/crawled.txt", crawled)
         lock.release()
+        time.sleep(time_to_sleep)
         if event.is_set():
             break
 
@@ -85,14 +87,15 @@ def stop_threads():
     return
 
 
-write_thread = threading.Thread(target = update_file, args = (event, ))
+write_thread = threading.Thread(target = update_file, args = (event, 30, ))
 write_thread.daemon = True
 write_thread.start()
 file_to_queue()
 time.sleep(2)
 create_workers()
-time.sleep(10)
+time.sleep(20)
 stop_threads()
-time.sleep(2)
+update_file(event, time_to_sleep=30)
+time.sleep(10)
 print("threads stopped")
 sys.exit(0)
