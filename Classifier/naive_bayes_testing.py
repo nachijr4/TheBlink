@@ -1,6 +1,6 @@
 import pandas as pd
 
-news_df = pd.read_csv("uci-news-aggregator.csv", sep = ",")
+news_df = pd.read_csv("C://Users//Allen Biju Thomas//Desktop//TheBlink Project//TheBlink//Classifier//uci-news-aggregator.csv", sep = ",")
 
 import string
 
@@ -44,6 +44,6 @@ print("Precision score: ", precision_score(y_test, predictions, average = 'weigh
 print("F1 score: ", f1_score(y_test, predictions, average = 'weighted'))
 
 import pickle
-pickle.dump(count_vector,open('count_vector_model.sav','wb'))
-pickle.dump(naive_bayes,open('naive_bayes_model.sav','wb'))
+pickle.dump(count_vector,open('C://Users//Allen Biju Thomas//Desktop//TheBlink Project//TheBlink//Classifier//count_vector_model.sav','wb'))
+pickle.dump(naive_bayes,open('C://Users//Allen Biju Thomas//Desktop//TheBlink Project//TheBlink//Classifier//naive_bayes_model.sav','wb'))
 
