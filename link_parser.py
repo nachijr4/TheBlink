@@ -16,16 +16,17 @@ class LinkParser():
             self.current_parsed_links.add(urljoin(self.current_link, link.get('href')))
         return self.current_parsed_links
 
-    def get_title(self):
+    def get_title_for_classifier(self):
         title = self.soup.find("title")
         domain = tldextract.extract(self.current_link)
-        return domain.domain+", "+re.sub(r'[^\w]'," ",title.get_text().strip().lower().replace(domain.domain, ""))
+        return_string = domain.domain+", "+re.sub(r'[^\w]'," ",title.get_text().strip().lower().replace(domain.domain, ""))
+        return return_string
 
 
 # import requests
 
-# a = requests.get("https://medium.com/@factoryhr/elasticsearch-introduction-implementation-and-example-17dd66c35c35").text
+# a = requests.get("https://medium.com/").text
 
-# t = LinkParser("https://medium.com/@factoryhr/elasticsearch-introduction-implementation-and-example-17dd66c35c35", a)
+# t = LinkParser("https://medium.com/", a)
 
-# print(t.get_title())
+# print(t.get_title_for_classifier())
