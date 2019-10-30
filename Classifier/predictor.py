@@ -27,7 +27,7 @@ class Classifier:
     @staticmethod
     def predict(query):
         test_query = Classifier.count_vector.transform(query)
-        pred = Classifier.naive_bayes.predict(test_query)
+        # pred = Classifier.naive_bayes.predict(test_query)
         prob = Classifier.naive_bayes.predict_proba(test_query)
         all_query_probability_dictionary = {}
         result = ["Business","Technology","Entertainment","Medical"]
