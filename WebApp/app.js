@@ -1,8 +1,3 @@
-// db.database.dropIndex();
-// for(var i=0;i<10;i++)
-// {
-//   console.log(Math.ceil(Math.random()*6));
-// }
 var express = require("express"),
     app     = express(),
     mongoose = require("mongoose"),
@@ -13,35 +8,11 @@ var express = require("express"),
 
 //-------------------Routes-----------------------------------------------
 var indexroutes = require("./routes/index.js");
-    // shopUser = require("./routes/shopUser.js"),
-    // shopCustomer = require("./routes/shopCustomer.js");
 //--------------------------------------------------------------
-//var medicine = require("./models/item.js")
     user     = require("./models/user.js");
-    // collectedpage = require("./models/collectedpage.js");
     link = require("./models/link.js");
-
-    // collectedpage.find({},function(err,foundcollectedpages){
-    //   if(err){ console.log(err);}
-    //   else {
-    //     // res.render("index/index.ejs",{user: foundusers, pages: foundcollectedpages});
-    //     console.log(foundcollectedpages)
-    //   }
-    // });
-
-    link.find({},function(err,foundlinks){
-      if(err){ console.log(err);}
-      else {
-        // res.render("index/index.ejs",{user: foundusers, pages: foundcollectedpages});
-        // console.log(foundlinks)
-      }
-    });
-
-  
 //--------------------------------------------------------------
-// mongoose.connect("mongodb://nachijr4:PAssword00!!@ds113871.mlab.com:13871/medsys",{useNewUrlParser: true});
-// mongoose.connect(process.env.database,{useNewUrlParser: true});
-mongoose.connect("mongodb://localhost:27017/TheBlink",{useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/TheBlink",{useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
 console.log(__dirname);
 app.use(express.static(__dirname +"/public"));
@@ -68,8 +39,6 @@ app.use(function(req,res,next){
 });
 
 app.use(indexroutes);
-// app.use(shopUser);
-// app.use(shopCustomer);
 app.listen(3000, function(){
   console.log("Server Started")
 });

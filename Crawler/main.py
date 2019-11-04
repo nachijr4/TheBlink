@@ -57,8 +57,7 @@ def work(event):
             if data != None:
                 collected_data.append(crawler.get_data())
                 total_no_of_data_added_to_db = 1+total_no_of_data_added_to_db
-            print("Check "+str(len(collected_data)))
-            if len(collected_data) > 5:
+            if len(collected_data) > 15:
                 add_to_database(collected_data)
             lock.release()
         queue.task_done()
@@ -95,7 +94,6 @@ def  add_to_queue(links=set()):
 
 
 def add_to_database(data_to_be_added):
-    print("/n/n----DB Check")
     db = DB()
     if db.insert_many("links", data_to_be_added):
         print("Data stored in database successfully")
@@ -105,7 +103,7 @@ def add_to_database(data_to_be_added):
 
 def stop_threads():
     global total_no_of_data_added_to_db
-    while total_no_of_data_added_to_db<200:
+    while total_no_of_data_added_to_db<25:
         continue
     event.set()
     return
