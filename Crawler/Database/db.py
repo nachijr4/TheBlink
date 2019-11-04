@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import datetime
 
 class DB:
-    db = MongoClient().theblink
+    db = MongoClient().TheBlink
 
     def insert_one(self, collection, data):
         data['created_at'] = datetime.datetime.utcnow()

@@ -27,6 +27,7 @@ class Crawler:
                     title_for_crawler = self.parsed_page.get_title_for_classifier()
                     self.classes_of_pages = Classifier.predict([title_for_crawler])[title_for_crawler]
                     self.highest_prob_class = sorted(self.classes_of_pages, key=self.classes_of_pages.get, reverse= True)[0]
+                    # self.thumbnails = self.parsed_page.get_thumbnail()
                     if not self.is_article:
                         Crawler.continous_non_article_count +=1
         except:
@@ -54,7 +55,7 @@ class Crawler:
             return {
                 'url' : self.open_url,
                 'title' : self.parsed_page.get_title(),
-                'thumbnail' : None,
+                'thumbnail' : self.parsed_page.get_thumbnail(),
                 'description' : self.parsed_page.get_description(),
                 # 'html' : self.parsed_page.get_html_body(),
                 'content_category' : self.highest_prob_class,

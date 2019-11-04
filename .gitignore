@@ -1,4 +1,5 @@
-__pycache__/
-links
-.vscode
-Classifier/uci-news-aggregator.csv
+Crawler/__pycache__/
+Crawler/links
+Crawler/.vscode
+Crawler/Classifier/uci-news-aggregator.csv
+WebApp/node_modules

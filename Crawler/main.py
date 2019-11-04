@@ -9,7 +9,7 @@ from Database.db import DB
 
 folder_path = "links"
 queue = Queue()
-threads_count = 32
+threads_count = 16
 total_no_of_data_added_to_db = 0
 threads = list()
 lock = threading.Lock()
@@ -57,7 +57,8 @@ def work(event):
             if data != None:
                 collected_data.append(crawler.get_data())
                 total_no_of_data_added_to_db = 1+total_no_of_data_added_to_db
-            if len(collected_data) > 15:
+            print("Check "+str(len(collected_data)))
+            if len(collected_data) > 5:
                 add_to_database(collected_data)
             lock.release()
         queue.task_done()
@@ -94,8 +95,9 @@ def  add_to_queue(links=set()):
 
 
 def add_to_database(data_to_be_added):
+    print("/n/n----DB Check")
     db = DB()
-    if db.insert_many("collected_pages", data_to_be_added):
+    if db.insert_many("links", data_to_be_added):
         print("Data stored in database successfully")
     else:
         print("Error in storing data in thedatabase")
@@ -108,15 +110,16 @@ def stop_threads():
     event.set()
     return
 
-write_thread = threading.Thread(target = update_file, args = (event, 30, ))
+write_thread = threading.Thread(target = update_file, args = (event, 60, ))
 write_thread.daemon = True
 write_thread.start()
+print("starting...")
 file_to_queue()
 time.sleep(2)
 create_workers()
 time.sleep(300)
 stop_threads()
-update_file(event, time_to_sleep=30)
+update_file(event, time_to_sleep=60)
 time.sleep(10)
 add_to_database(collected_data)
 print("threads stopped")

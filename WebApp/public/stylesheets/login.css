@@ -1,0 +1,32 @@
+.container{
+  padding-top: 50px;
+  width: 500px;
+}
+.card{
+  background-color: #e6f5ff00;
+  border: none;
+}
+
+body{
+  min-height: 722px;
+  /* background-image: url("/img/work-3.jpg"); */
+  /* background-image: url("https://cdn.pixabay.com/photo/2017/04/19/13/16/computer-2242264_1280.jpg"); */
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/img/work-3.jpg");
+  /* background-image: linear-gradient(to right top, #f4bddc, #d9a6d0, #bb91c5, #9a7dba, #746caf, #6174b4, #4e7bb7, #3a81b6, #5b9fc2, #85bbcc, #b3d6db, #e3f0ef);; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body{
+  margin-top: 20%;
+}
+
+html,body{
+  margin: 0;
+  min-height: 100%;
+}
+
+.btn{
+  margin: 0 40%;
+}

@@ -1,0 +1,37 @@
+body{
+  background:   url(https://cdn.pixabay.com/photo/2017/04/19/13/16/computer-2242264_1280.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+/* min-height: 720px; */
+}
+
+/* div{
+  padding-top: 300px;
+  text-align: center;
+} */
+
+.container{
+  text-align: center;
+}
+
+#hr{
+  padding:0 550px;
+}
+
+div p{
+  padding:0 579px;
+  padding-top:300px;
+  font-size: 90px;
+  color: white;
+}
+
+hr{
+  border-top: 3.5px solid #0072ff;
+}
+
+
+html,body{
+  margin: 0;
+  min-height: 100%;
+}

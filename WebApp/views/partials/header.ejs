@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="icon" href="/img/theblinkicon.ico" type="image/x-icon" />
+    <title>The Blink</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+
+    <!-- / Nav Star /-->
+  <!-- <nav class="navbar navbar-b navbar-expand-md fixed-top" id="mainNav">
+      <div class="container">
+          <a class="navbar-brand js-scroll" href="#page-top">The Blink! <i class="far fa-eye"></i></a>
+        <a href="/home" class="nav-link">Home <i class="fas fa-home"></i></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+          aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+          <ul class="navbar-nav">
+
+            <%if(currentUser){%>
+              <li class="nav-item">
+                <a class="nav-link js-scroll active"><%=currentUser.name%></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+              </li>
+          <%}
+          else{ %>
+            <li class="nav-item">
+              <a class="nav-link js-scroll" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
+            </li>
+            <%}%>
+
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+    <!--/ Nav End / -->
+
+
+
+
+
+
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-light mb-2">
+  <a class="navbar-brand nav-link" href="/">The Blink! <i class="far fa-eye"></i></a>
+  <a href="/home" class="nav-link">Home <i class="fas fa-home"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="">
+      <li class="nav-link">
+        <%if(currentUser){%>
+            <li>
+              <a class="nav-item nav-link"><%=currentUser.name%></a>
+            </li>
+            <li>
+              <a class="nav-item nav-link" href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+            </li>
+        <%}
+        else{ %>
+          <li>
+            <a class="nav-item nav-link" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
+          </li>
+          <%}%>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+  <!-- <div class="container ml-2 mr-2"> -->
+    <a class="navbar-brand nav-link" href="/">The Blink <i class="far fa-eye"></i></a>
+    <!-- <a href="/home" class="nav-link">Home</i></a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="navbar-item active">
+          <%if(currentUser){%>
+              <li>
+                <a class="nav-item nav-link caps"><%=currentUser.name%></a>
+              </li>
+              <li>
+                <a class="nav-link caps" href="/logout">LOGOUT</a>
+              </li>
+          <%}
+          else{ %>
+            <li>
+              <a class="nav-link caps" href="/login">LOGIN</i></a>
+            </li>
+            <%}%>
+        </li>
+      </ul>
+    </div>
+  </nav>

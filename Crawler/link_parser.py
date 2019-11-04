@@ -63,6 +63,19 @@ class LinkParser():
         # div = body.find_all('div')
         # return "".join(div)
         return self.html
+    
+    def get_thumbnail(self):
+        images = self.soup.find_all('img')
+        if len(images)>1:
+            for i in images[0].attrs:
+                if "src" in i:
+                    extentions = [".png",".jpg",".jpeg",".gif",".tiff"]
+                    for extention in extentions:
+                        if extention in images[0].attrs[i]:
+                            isImage = True
+                            return images[0].attrs[i]
+
+        return "notfound"
 
 # import requests
 
