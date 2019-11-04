@@ -110,7 +110,7 @@
                   <div class="col-sm-4">
                     <div class="w-like">
                         <div>
-                          <button type="button" class="btn btn-primary summary" data-toggle="modal" data-target=<%="#".concat(page.title)%>>
+                          <button type="button" class="btn btn-primary summary" data-toggle="modal" data-target=<%="#id".concat(page._id.toString())%>>
                               Summary
                           </button>
                         </div>
@@ -131,7 +131,7 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id=<%=page.title%> tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal fade" id=<%="id".concat(page._id.toString())%> tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
           <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
